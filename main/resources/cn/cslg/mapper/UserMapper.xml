@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意  namespace属性值需修改为对应的Mapper接口的全类名-->
+<mapper namespace="cn.cslg.mapper.UserMapper">
+
+    <select id="select" resultType="cn.cslg.model.User">
+        select * from user
+    </select>
+
+    <select id="select1" resultType="cn.cslg.model.User">
+        select * from usertem
+    </select>
+
+    <select id="select2" resultType="cn.cslg.model.User">
+        select * from user where sno!=#{sno}
+    </select>
+
+    <insert id="insert">
+        insert into user values (#{sno},#{name},#{partid},#{password},#{flag})
+    </insert>
+
+    <insert id="insert1">
+        insert into usertem values (#{sno},#{name},#{partid},#{password},#{flag})
+    </insert>
+
+    <delete id="delete">
+        delete from user where sno=#{sno}
+    </delete>
+
+    <delete id="delete1">
+        delete from usertem where sno=#{sno}
+    </delete>
+
+    <update id="update">
+        update  user set name=#{name},partid=#{partid},password=#{password},flag=#{flag} where sno=#{sno}
+    </update>
+
+    <update id="update1">
+        update  usertem set name=#{name},partid=#{partid},password=#{password},flag=#{flag} where sno=#{sno}
+    </update>
+
+    <select id="selectById" resultType="cn.cslg.model.User">
+        select * from user where sno=#{sno}
+    </select>
+
+    <select id="selectById1" resultType="cn.cslg.model.User">
+        select * from usertem where sno=#{sno}
+    </select>
+
+
+</mapper>

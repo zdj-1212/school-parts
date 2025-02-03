@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意  namespace属性值需修改为对应的Mapper接口的全类名-->
+<mapper namespace="cn.cslg.mapper.PartsMapper">
+
+    <select id="select" resultType="cn.cslg.model.Parts">
+        select * from parts
+    </select>
+
+    <insert id="insert">
+        insert into parts values(#{id},#{partname},#{message})
+    </insert>
+
+    <delete id="delete">
+        delete from  parts where id=#{id}
+    </delete>
+
+    <update id="update">
+        update parts set partname=#{partname},message=#{message} where id=#{id}
+    </update>
+
+    <select id="selectById" resultType="cn.cslg.model.Parts">
+        select  * from parts where id=#{id}
+    </select>
+
+    <select id="selectByName" resultType="cn.cslg.model.Parts">
+        select  * from parts where  partname LIKE CONCAT('%', #{name}, '%')
+    </select>
+
+
+</mapper>
